@@ -4,7 +4,8 @@ pipeline {
     stage('Launch NeoLoad') {
       steps {
         bat 'cd "C:\\Users\\Clem\\Documents"'
-        bat '%neoload%\\NeoLoadGUI_NoPrivilege.exe -project "PassionFroid.nlp"'
+        bat '"C:\\Program Files\\NeoLoad 6.8\\bin\\NeoLoadGUI_NoPrivilege.exe" -project "PassionFroid.nlp"'
+        sleep 10
       }
     }
     stage('Launch Selenium script') {
