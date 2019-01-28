@@ -13,7 +13,7 @@ pipeline {
     }
     stage('Kill NeoLoad') {
       steps {
-        bat ' Taskkill /IM NeoLoadGUI_NoPrivilege.exe'
+        bat ' Taskkill /IM NeoLoadGUI_NoPrivilege.exe /F'
       }
     }
   }
