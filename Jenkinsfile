@@ -4,7 +4,7 @@ pipeline {
     stage('Launch NeoLoad') {
       steps {
         sh '''cd C:\\Program Files\\NeoLoad 6.8\\bin
- .\\NeoLoadGUI.exe -project "C:\\Users\\Clem\\Documents\\NeoLoad Projects\\PassionFroid\\Ne
+ .\\NeoLoadGUI_NoPrivilege.exe -project "C:\\Users\\Clem\\Documents\\NeoLoad Projects\\PassionFroid\\Ne
 oLoad\\PassionFroid.nlp"
 '''
       }
