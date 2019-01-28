@@ -3,6 +3,7 @@ pipeline {
   stages {
     stage('Launch NeoLoad') {
       steps {
+        bat ' Taskkill /IM NeoLoadGUI_NoPrivilege.exe /F'
         bat '"C:\\Program Files\\NeoLoad 6.8\\bin\\NeoLoadGUI_NoPrivilege.exe" -project "C:\\Users\\Clem\\Documents\\NeoLoad Projects\\PassionFroid\\NeoLoad\\PassionFroid.nlp"'
       }
     }
