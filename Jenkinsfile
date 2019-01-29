@@ -2,9 +2,18 @@ pipeline {
   agent any
   stages {
     stage('Launch NeoLoad') {
-      steps {
-        bat 'start /B "C:\\Program Files\\NeoLoad 6.8\\bin\\NeoLoadGUI_NoPrivilege.exe" -project "C:\\Users\\Clem\\Documents\\NeoLoad_Projects\\PassionFroid\\NeoLoad\\PassionFroid.nlp"'
-        sleep 10
+      parallel {
+        stage('Launch NeoLoad') {
+          steps {
+            bat 'start /B "C:\\Program Files\\NeoLoad 6.8\\bin\\NeoLoadGUI_NoPrivilege.exe" -project "C:\\Users\\Clem\\Documents\\NeoLoad_Projects\\PassionFroid\\NeoLoad\\PassionFroid.nlp"'
+            sleep 10
+          }
+        }
+        stage('Timing neoload') {
+          steps {
+            sleep 30
+          }
+        }
       }
     }
     stage('Launch Selenium script') {
