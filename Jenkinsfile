@@ -21,7 +21,7 @@ pipeline {
     }
     stage('Launch test') {
       steps {
-        neoloadRun executable: 'C:\\Program Files\\NeoLoad 6.8\\bin\\NeoLoadCMD', scenarioName: 'scenario1', projectType: 'C:\\Users\\Clem\\Documents\\NeoLoad_Projects\\PassionFroid\\NeoLoad\\PassionFroid.nlp'
+        neoloadRun(executable: 'C:\\Program Files\\NeoLoad 6.8\\bin\\NeoLoadCMD', scenarioName: 'scenario1', projectType: 'C:\\Users\\Clem\\Documents\\NeoLoad_Projects\\PassionFroid\\NeoLoad\\PassionFroid.nlp')
       }
     }
   }
