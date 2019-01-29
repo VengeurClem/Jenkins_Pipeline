@@ -1,18 +1,10 @@
 pipeline {
   agent any
   stages {
-    stage('Launch NeoLoad') {
+    stage('change script in neoload') {
       steps {
         bat(script: '"C:\\Program Files\\NeoLoad 6.8\\bin\\NeoLoadGUI_NoPrivilege.exe" -project "C:\\Users\\Clem\\Documents\\NeoLoad_Projects\\PassionFroid\\NeoLoad\\PassionFroid.nlp"', returnStatus: true)
-      }
-    }
-    stage('Launch Selenium script') {
-      steps {
         sleep 20
-      }
-    }
-    stage('Kill NeoLoad') {
-      steps {
         bat ' Taskkill /IM NeoLoadGUI_NoPrivilege.exe /F'
       }
     }
