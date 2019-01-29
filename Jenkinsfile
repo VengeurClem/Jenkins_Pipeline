@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Launch NeoLoad') {
       steps {
-        timeout(time: 30) {
+        timeout(time: 30, activity: true) {
           bat(script: '"C:\\Program Files\\NeoLoad 6.8\\bin\\NeoLoadGUI_NoPrivilege.exe" -project "C:\\Users\\Clem\\Documents\\NeoLoad_Projects\\PassionFroid\\NeoLoad\\PassionFroid.nlp"', returnStatus: true, returnStdout: true)
         }
 
@@ -11,7 +11,7 @@ pipeline {
     }
     stage('Launch Selenium script') {
       steps {
-        sleep 5
+        sleep 20
       }
     }
     stage('Kill NeoLoad') {
