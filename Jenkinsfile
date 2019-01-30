@@ -20,24 +20,14 @@ pipeline {
       }
     }
     stage('Launch test') {
-      parallel {
-        stage('Launch test') {
-          steps {
-            catchError() {
-              bat '"C:\\Program Files\\NeoLoad 6.8\\bin\\NeoLoadGUI_NoPrivilege.exe" -project "C:\\Users\\Clem\\Documents\\NeoLoad_Projects\\PassionFroid\\NeoLoad\\PassionFroid.nlp" -launch "scenario1"'
-            }
+      steps {
+        catchError() {
+          bat '"C:\\Program Files\\NeoLoad 6.8\\bin\\NeoLoadGUI_NoPrivilege.exe" -project "C:\\Users\\Clem\\Documents\\NeoLoad_Projects\\PassionFroid\\NeoLoad\\PassionFroid.nlp" -launch "scenario1" - report "C:\\Users\\Clem\\Documents\\NeoLoad_Projects\\PassionFroid\\NeoLoad\\reports\\myReports.html" -exit'
+        }
 
-          }
-        }
-        stage('') {
-          steps {
-            sleep(unit: 'MINUTES', time: 6)
-            bat 'taskkill /IM NeoLoadGUI_NoPrivilege.exe /F'
-          }
-        }
       }
     }
-    stage('') {
+    stage('error') {
       steps {
         echo 'This is the end'
       }
