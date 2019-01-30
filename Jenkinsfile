@@ -13,7 +13,7 @@ pipeline {
         }
         stage('error') {
           steps {
-            sleep(unit: 'MINUTES', time: 4)
+            sleep(unit: 'MINUTES', time: 2)
             bat 'java -jar "C:\\Users\\Clem\\Documents\\NeoLoad_Projects\\PassionFroid\\out\\artifacts\\PassionFroid_jar\\EpiSaveursSeleniumTestAutomation.jar"'
             bat 'taskkill /IM NeoLoadGUI_NoPrivilege.exe /F'
           }
