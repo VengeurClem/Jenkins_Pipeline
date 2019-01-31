@@ -25,7 +25,7 @@ pipeline {
         stage('Launch test') {
           steps {
             catchError() {
-              bat '"C:\\Program Files\\NeoLoad 6.8\\bin\\NeoLoadGUI_NoPrivilege.exe" -project "C:\\Users\\Clem\\Documents\\NeoLoad_Projects\\PassionFroid\\NeoLoad\\PassionFroid.nlp" -launch "scenario1" -report "C:\\Program Files (x86)\\Jenkins\\workspace\\Jenkins_Pipeline_master\\myReports.html" '
+              bat '"C:\\Program Files\\NeoLoad 6.8\\bin\\NeoLoadGUI_NoPrivilege.exe" -project "C:\\Users\\Clem\\Documents\\NeoLoad_Projects\\PassionFroid\\NeoLoad\\PassionFroid.nlp" -launch "scenario1" -report "C:\\Program Files (x86)\\Jenkins\\workspace\\Jenkins_Pipeline_master\\myReports.html" -publishTestResult'
             }
 
           }
