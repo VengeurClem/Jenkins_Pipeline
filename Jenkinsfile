@@ -11,7 +11,7 @@ pipeline {
 
           }
         }
-        stage('error') {
+        stage('See me I\'m your killer') {
           steps {
             sleep(unit: 'MINUTES', time: 2)
             bat 'java -jar "C:\\Users\\Clem\\Documents\\NeoLoad_Projects\\PassionFroid\\out\\artifacts\\PassionFroid_jar\\EpiSaveursSeleniumTestAutomation.jar"'
@@ -21,14 +21,24 @@ pipeline {
       }
     }
     stage('Launch test') {
-      steps {
-        catchError() {
-          bat '"C:\\Program Files\\NeoLoad 6.8\\bin\\NeoLoadGUI_NoPrivilege.exe" -project "C:\\Users\\Clem\\Documents\\NeoLoad_Projects\\PassionFroid\\NeoLoad\\PassionFroid.nlp" -launch "scenario1" -report "C:\\Users\\Clem\\Documents\\NeoLoad_Projects\\PassionFroid\\NeoLoad\\reports\\myReports.html" -exit'
-        }
+      parallel {
+        stage('Launch test') {
+          steps {
+            catchError() {
+              bat '"C:\\Program Files\\NeoLoad 6.8\\bin\\NeoLoadGUI_NoPrivilege.exe" -project "C:\\Users\\Clem\\Documents\\NeoLoad_Projects\\PassionFroid\\NeoLoad\\PassionFroid.nlp" -launch "scenario1" -report "C:\\Users\\Clem\\Documents\\NeoLoad_Projects\\PassionFroid\\NeoLoad\\reports\\myReports.html" '
+            }
 
+          }
+        }
+        stage('I kill you') {
+          steps {
+            sleep(time: 6, unit: 'MINUTES')
+            bat 'taskkill /IM NeoLoadGUI_NoPrivilege.exe /F'
+          }
+        }
       }
     }
-    stage('error') {
+    stage('Message') {
       steps {
         echo 'This is the end'
       }
