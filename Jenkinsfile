@@ -34,6 +34,7 @@ pipeline {
           steps {
             sleep(time: 6, unit: 'MINUTES')
             neoloadRefreshTrends(maxTrends: 1, showTrendAverageResponse: true, showTrendErrorRate: true)
+            bat 'taskkill /IM NeoLoadCMD.exe /F'
           }
         }
       }
