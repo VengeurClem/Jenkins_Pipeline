@@ -25,7 +25,7 @@ pipeline {
         stage('Launch test') {
           steps {
             catchError() {
-              bat '"C:\\Program Files\\NeoLoad 6.8\\bin\\NeoLoadCMD.exe" -project "C:\\Users\\Clem\\Documents\\NeoLoad_Projects\\PassionFroid\\NeoLoad\\PassionFroid.nlp" -launch "scenario1" -report "C:\\Program Files (x86)\\Jenkins\\workspace\\Jenkins_Pipeline_master\\myReports.html" -publishTestResult -exit'
+              bat(script: '"C:\\Program Files\\NeoLoad 6.8\\bin\\NeoLoadCMD.exe" -project "C:\\Users\\Clem\\Documents\\NeoLoad_Projects\\PassionFroid\\NeoLoad\\PassionFroid.nlp" -launch "scenario1" -report "C:\\Program Files (x86)\\Jenkins\\workspace\\Jenkins_Pipeline_master\\myReports.html" -publishTestResult ', returnStatus: true)
             }
 
           }
@@ -34,7 +34,6 @@ pipeline {
           steps {
             sleep(time: 6, unit: 'MINUTES')
             neoloadRefreshTrends(maxTrends: 1, showTrendAverageResponse: true, showTrendErrorRate: true)
-            bat 'taskkill /IM NeoLoadCMD.exe /F'
           }
         }
       }
